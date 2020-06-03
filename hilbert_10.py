@@ -1,3 +1,9 @@
+# Author: Sebastien
+# My python implementation of the OSQP solver () 
+# The original OSQP solver and the paper are available at : https://osqp.org/docs/index.html
+
+# Test against original OSQP on Hilbert QP
+
 from solver import QPADMMSolver
 from scipy.linalg import hilbert
 import numpy as np

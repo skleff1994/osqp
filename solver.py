@@ -1,10 +1,15 @@
+# Author: Sebastien
+# My python implementation of the OSQP solver 
+# The original OSQP solver and the paper are available at : https://osqp.org/docs/index.html
+
 import numpy as np
 from numpy.linalg import norm
 from scipy.linalg import ldl
-from sksparse.cholmod import cholesky, cholesky_AAt
+from sksparse.cholmod import cholesky
 from scipy import sparse
 from scipy.sparse.linalg import inv
 import time
+
 
 class QPADMMSolver:
     '''
@@ -264,10 +269,10 @@ class QPADMMSolver:
 
                     # Rho update
                     if adaptive_rho:
-                        # If not worth it, pass
+                        # If rho update is not substantial, pass
                         if (0.2<=rho_update_factor and rho_update_factor<=5):
                             pass
-                        # If new rho_bar is sufficiently different from old one
+                        # If update is worth it
                         else:
                             # And if re-factoring the KKT matrix is not too expensive
                             if time.time() - start >= .4*self.factorization_time:

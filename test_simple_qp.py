@@ -65,7 +65,6 @@ ax[2].grid()
     # Custom and save
 fig.subplots_adjust(hspace=.5)
 fig.suptitle('Objective and residuals for Hilbert (n=3)', size=16)
-plt.savefig("hilbert3.png")
 plt.show()
 
 
